@@ -14,5 +14,5 @@
       "rules": {}
     }
   ],
-  "extends": ["plugin:@nx/react"]
+  "extends": ["plugin:playwright/recommended", "plugin:@nx/react"]
 }

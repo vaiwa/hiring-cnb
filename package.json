@@ -5,7 +5,9 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test",
+    "test:unit": "nx test",
+    "test:e2e": "cd e2e && nx e2e",
+    "test": "npm run test:unit && npm run test:e2e",
     "clean": "npx rimraf node_modules dist",
     "lint:prettier": "npx prettier . --check",
     "lint:eslint": "nx lint",
