@@ -1,14 +1,27 @@
-# Org
+# Task
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+Create a simple React app (don’t use NextJS please), which:
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+1. When it starts, retrieve the latest currency exchange rates from the Czech National Bank.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-standalone-tutorial?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+   API URL: https://www.cnb.cz/en/financial-markets/foreign-exchange-market/central-bank-exchange-rate-fixing/central-bank-exchange-rate-fixing/daily.txt
 
-## Finish your CI setup
+   Documentation: https://www.cnb.cz/en/faq/Format-of-the-foreign-exchange-market-rates/
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/EH8v4c2A1a)
+2. Parses the downloaded data and clearly displays a list to the user in the UI.
+
+3. Add a simple form, into which the customer can enter an amount in CZK and select a currency, and after submitting (clicking a button or in real-time) sees the amount entered in CZK converted into the selected currency.
+
+4. Commit your code throughout your work and upload the resulting codebase into a Github repo.
+
+5. Deploy the app so it can be viewed online (it doesn’t matter where - e.q. Vercel, Netflify, etc.).
+6. Add automated tests which might be appropriate to ensure that your solution is working correctly.
+
+7. Tech stack: React (+ Hooks), TypeScript, Styled Components, React Query.
+
+Overall: Keep the code simple and the UI nice and easy to use for the user.
+
+# Nx Workspace
 
 ## Run tasks
 
@@ -27,7 +40,7 @@ npx nx build org
 To see all available targets to run for a project, run:
 
 ```sh
-npx nx show project org
+npx nx show project hiring-cnb
 ```
 
 These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
