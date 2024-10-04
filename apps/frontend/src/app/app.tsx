@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { useQuery } from '@tanstack/react-query'
+import RatesTable from './components/RatesTable'
 
 const StyledApp = styled.div`
   // Your style here
@@ -7,13 +8,21 @@ const StyledApp = styled.div`
 
 const BACKEND_URL = './api/cnb-exchange-rates'
 
+export type ExchangeRate = {
+  country: string
+  currency: string
+  amount: number
+  code: string
+  rate: number
+}
+
 export function App() {
-  const { isPending, error, data, isFetching } = useQuery({
+  const { isPending, error, data } = useQuery({
     queryKey: ['repoData'],
     queryFn: async () => {
       const response = await fetch(BACKEND_URL)
       const { data } = await response.json()
-      return data
+      return data as ExchangeRate[] // TODO add tRPC to keep the types
     },
   })
 
@@ -25,7 +34,7 @@ export function App() {
     <StyledApp>
       <h1>Task CNB</h1>
 
-      <code>{isFetching ? 'Updating...' : JSON.stringify(data)}</code>
+      <RatesTable data={data} />
     </StyledApp>
   )
 }

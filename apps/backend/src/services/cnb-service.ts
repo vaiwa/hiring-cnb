@@ -23,7 +23,7 @@ export const getExchangeRates = async (): Promise<[ErrorType, ExchangeRate[]?]> 
 }
 
 export const _parseExchangeRates = (text: string): ExchangeRate[] => {
-  const lines = text.split('\n').slice(2)
+  const lines = text.split('\n').slice(2, -1) // ignore first 2 lines + last line
 
   const exchangeRates = lines.map((line) => _parseExchangeRateLine(line))
 

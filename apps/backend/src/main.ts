@@ -19,7 +19,7 @@ app.get(`/${API}`, (req, res) => {
   res.send({ message: 'Hello API' })
 })
 
-const cnbExchangeRates = 'cnb-exchange-rates'
+const cnbExchangeRates = 'cnb-exchange-rates' // TODO change to tRPC to keep the types
 app.get(`/${API}/${cnbExchangeRates}`, async (req, res) => {
   console.info(`API Call: ${cnbExchangeRates}`)
   const [error, data] = await getExchangeRates()
