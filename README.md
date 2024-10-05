@@ -29,6 +29,7 @@ To run the dev server for your app, use:
 
 ```sh
 npx nx serve backend
+npx nx build frontend --watch
 ```
 
 To create a production bundle:

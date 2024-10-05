@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { useQuery } from '@tanstack/react-query'
 import RatesTable from './components/RatesTable'
+import CurrencyConverter from './components/CurrencyConverter'
 
 const StyledApp = styled.div`
   // Your style here
@@ -34,6 +35,7 @@ export function App() {
     <StyledApp>
       <h1>Task CNB</h1>
 
+      <CurrencyConverter data={data} />
       <RatesTable data={data} />
     </StyledApp>
   )
