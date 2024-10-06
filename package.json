@@ -2,7 +2,11 @@
   "name": "@hiring-cnb/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "nx build frontend",
+    "build:backend": "nx build backend"
+  },
   "private": true,
   "dependencies": {
     "@tanstack/react-query": "^5.59.0",
