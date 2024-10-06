@@ -19,7 +19,7 @@ export const getExchangeRates = async (): Promise<[ErrorType, ExchangeRate[]?]> 
 
   const exchangeRates = _parseExchangeRates(text)
 
-  return [null, exchangeRates] // TODO unit tests
+  return [null, exchangeRates]
 }
 
 export const _parseExchangeRates = (text: string): ExchangeRate[] => {
@@ -27,7 +27,7 @@ export const _parseExchangeRates = (text: string): ExchangeRate[] => {
 
   const exchangeRates = lines.map((line) => _parseExchangeRateLine(line))
 
-  return exchangeRates // TODO unit test
+  return exchangeRates
 }
 
 const toNum = (str: string): number => Number(str)
@@ -35,5 +35,5 @@ const toNum = (str: string): number => Number(str)
 export const _parseExchangeRateLine = (line: string): ExchangeRate => {
   const [country, currency, amount, code, rate] = line.split('|')
 
-  return { country, currency, amount: toNum(amount), code, rate: toNum(rate) } // TODO unit test
+  return { country, currency, amount: toNum(amount), code, rate: toNum(rate) }
 }

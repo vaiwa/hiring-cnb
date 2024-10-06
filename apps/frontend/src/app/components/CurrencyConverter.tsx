@@ -57,8 +57,11 @@ const CurrencyConverter = ({ data }: CurrencyConverterProps) => {
   const [convertedAmount, setConvertedAmount] = useState<number>(0)
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const line = data.find((line) => line.code === selectedCurrency)!
+    const line = data.find((line) => line.code === selectedCurrency)
+    if (!line) {
+      console.error('No Line found for selectedCurrency:', selectedCurrency, data)
+      return
+    }
     const rate = line.amount / line.rate
     setConvertedAmount(czkAmount * rate)
   }, [data, czkAmount, selectedCurrency])
