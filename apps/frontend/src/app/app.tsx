@@ -7,7 +7,7 @@ const StyledApp = styled.div`
   // Your style here
 `
 
-const BACKEND_URL = './api/cnb-exchange-rates'
+const API_URL = './api/cnb-exchange-rates'
 
 export type ExchangeRate = {
   country: string
@@ -21,7 +21,7 @@ export function App() {
   const { isPending, error, data } = useQuery({
     queryKey: ['repoData'],
     queryFn: async () => {
-      const response = await fetch(BACKEND_URL)
+      const response = await fetch(API_URL)
       const { data } = await response.json()
       return data as ExchangeRate[] // TODO add tRPC to keep the types
     },

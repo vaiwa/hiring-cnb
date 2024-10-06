@@ -35,3 +35,6 @@ app.get('*', (req, res) => {
 app.listen(port, host, () => {
   console.log(`[ ready ] http://${host}:${port}`)
 })
+
+// Export the Express API
+module.exports = app
