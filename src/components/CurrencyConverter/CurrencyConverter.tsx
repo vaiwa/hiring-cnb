@@ -4,8 +4,9 @@ import type { ExchangeRate } from '../../services/ratesService'
 import { ConvertedAmount } from './ConvertedAmount'
 
 const Container = styled.div`
-  max-width: 400px;
-  margin: 0 auto;
+  max-width: 600px;
+  min-width: 300px;
+  height: 100%;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;

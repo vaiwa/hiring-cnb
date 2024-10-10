@@ -6,9 +6,17 @@ const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, auto);
   gap: 1px;
-  margin: 20px 0;
+  margin: 0px;
   width: 100%;
   max-width: 500px;
+`
+
+const Container = styled.div`
+  max-width: 600px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `
 
 // Header row
@@ -48,24 +56,26 @@ type RatesTableProps = {
 
 const RatesTable = ({ data }: RatesTableProps) => {
   return (
-    <GridContainer data-testid="rates-table">
-      <GridHeader>
-        <SpanCenter>Country</SpanCenter>
-        <SpanCenter>Currency</SpanCenter>
-        <SpanCenter>Amount</SpanCenter>
-        <SpanCenter>Code</SpanCenter>
-        <SpanCenter>Rate</SpanCenter>
-      </GridHeader>
-      {data.map(({ country, currency, amount, code, rate }) => (
-        <GridRow key={code}>
-          <span>{country}</span>
-          <span>{currency}</span>
-          <span>{amount}</span>
-          <span>{code}</span>
-          <SpanRight>{rate.toFixed(2)}</SpanRight>
-        </GridRow>
-      ))}
-    </GridContainer>
+    <Container>
+      <GridContainer data-testid="rates-table">
+        <GridHeader>
+          <SpanCenter>Country</SpanCenter>
+          <SpanCenter>Currency</SpanCenter>
+          <SpanCenter>Amount</SpanCenter>
+          <SpanCenter>Code</SpanCenter>
+          <SpanCenter>Rate</SpanCenter>
+        </GridHeader>
+        {data.map(({ country, currency, amount, code, rate }) => (
+          <GridRow key={code}>
+            <span>{country}</span>
+            <span>{currency}</span>
+            <span>{amount}</span>
+            <span>{code}</span>
+            <SpanRight>{rate.toFixed(2)}</SpanRight>
+          </GridRow>
+        ))}
+      </GridContainer>
+    </Container>
   )
 }
 

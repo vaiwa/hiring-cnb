@@ -26,5 +26,6 @@ dist-ssr
 *.tsbuildinfo
 *.cache
 *.env
+.nx
 
 hiring-cnb-key.json
