@@ -38,4 +38,30 @@ describe('App', () => {
     const { getByText } = render(<App />)
     expect(getByText(/Task ČNB/gi)).toBeTruthy()
   })
+
+  it('should have a CurrencyConverter component rendered', () => {
+    mockedUseQuery.mockReturnValue({
+      data: [
+        { country: 'EMU', currency: 'euro', amount: 1, code: 'EUR', rate: 25.35 },
+        { country: 'United Kingdom', currency: 'pound', amount: 1, code: 'GBP', rate: 30.273 },
+        { country: 'USA', currency: 'dollar', amount: 1, code: 'USD', rate: 23.135 },
+      ],
+    })
+
+    const { getByTestId } = render(<App />)
+    expect(getByTestId('currency-converter')).toBeTruthy()
+  })
+
+  it('should have a RatesTable component rendered', () => {
+    mockedUseQuery.mockReturnValue({
+      data: [
+        { country: 'EMU', currency: 'euro', amount: 1, code: 'EUR', rate: 25.35 },
+        { country: 'United Kingdom', currency: 'pound', amount: 1, code: 'GBP', rate: 30.273 },
+        { country: 'USA', currency: 'dollar', amount: 1, code: 'USD', rate: 23.135 },
+      ],
+    })
+
+    const { getByTestId } = render(<App />)
+    expect(getByTestId('rates-table')).toBeTruthy()
+  })
 })

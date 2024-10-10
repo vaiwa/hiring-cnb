@@ -65,7 +65,7 @@ const CurrencyConverter = ({ data }: CurrencyConverterProps) => {
       data
         .sort((a, b) => a.country.localeCompare(b.country))
         .map((line) => (
-          <option value={line.code}>
+          <option value={line.code} key={line.code}>
             {line.country} {line.currency} - {line.code}
           </option>
         )),
@@ -73,7 +73,7 @@ const CurrencyConverter = ({ data }: CurrencyConverterProps) => {
   )
 
   return (
-    <Container>
+    <Container data-testid="currency-converter">
       <Title>Currency Converter</Title>
 
       <div>

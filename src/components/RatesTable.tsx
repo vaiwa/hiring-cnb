@@ -48,7 +48,7 @@ type RatesTableProps = {
 
 const RatesTable = ({ data }: RatesTableProps) => {
   return (
-    <GridContainer>
+    <GridContainer data-testid="rates-table">
       <GridHeader>
         <SpanCenter>Country</SpanCenter>
         <SpanCenter>Currency</SpanCenter>
