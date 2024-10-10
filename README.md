@@ -1,50 +1,26 @@
-# React + TypeScript + Vite
+# Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Create a simple React app (don’t use NextJS please), which:
 
-Currently, two official plugins are available:
+1. When it starts, retrieve the latest currency exchange rates from the Czech National Bank.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   API URL: https://www.cnb.cz/en/financial-markets/foreign-exchange-market/central-bank-exchange-rate-fixing/central-bank-exchange-rate-fixing/daily.txt
 
-## Expanding the ESLint configuration
+   Documentation: https://www.cnb.cz/en/faq/Format-of-the-foreign-exchange-market-rates/
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. Parses the downloaded data and clearly displays a list to the user in the UI.
 
-- Configure the top-level `parserOptions` property like this:
+3. Add a simple form, into which the customer can enter an amount in CZK and select a currency, and after submitting (clicking a button or in real-time) sees the amount entered in CZK converted into the selected currency.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+4. Commit your code throughout your work and upload the resulting codebase into a Github repo.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+5. Deploy the app so it can be viewed online (it doesn’t matter where - e.q. Vercel, Netflify, etc.).
+6. Add automated tests which might be appropriate to ensure that your solution is working correctly.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+7. Tech stack: React (+ Hooks), TypeScript, Styled Components, React Query.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Overall: Keep the code simple and the UI nice and easy to use for the user.
+
+# Result
+
+[https://hiring-cnb.web.app/](https://hiring-cnb.web.app/)
