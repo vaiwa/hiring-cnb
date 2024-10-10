@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import type { ExchangeRate } from '../app'
+import type { ExchangeRate } from '../services/ratesService'
 
 // Main container for the grid
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, auto);
   gap: 1px;
   margin: 20px 0;
   width: 100%;
@@ -34,6 +34,14 @@ const GridRow = styled.div`
   }
 `
 
+const SpanRight = styled.span`
+  text-align: right;
+`
+
+const SpanCenter = styled.span`
+  text-align: center;
+`
+
 type RatesTableProps = {
   data: ExchangeRate[]
 }
@@ -42,11 +50,11 @@ const RatesTable = ({ data }: RatesTableProps) => {
   return (
     <GridContainer>
       <GridHeader>
-        <span>Country</span>
-        <span>Currency</span>
-        <span>Amount</span>
-        <span>Code</span>
-        <span>Rate</span>
+        <SpanCenter>Country</SpanCenter>
+        <SpanCenter>Currency</SpanCenter>
+        <SpanCenter>Amount</SpanCenter>
+        <SpanCenter>Code</SpanCenter>
+        <SpanCenter>Rate</SpanCenter>
       </GridHeader>
       {data.map(({ country, currency, amount, code, rate }) => (
         <GridRow key={code}>
@@ -54,7 +62,7 @@ const RatesTable = ({ data }: RatesTableProps) => {
           <span>{currency}</span>
           <span>{amount}</span>
           <span>{code}</span>
-          <span>{rate}</span>
+          <SpanRight>{rate.toFixed(2)}</SpanRight>
         </GridRow>
       ))}
     </GridContainer>

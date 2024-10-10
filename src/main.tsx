@@ -1,12 +1,10 @@
 import { StrictMode } from 'react'
 import * as ReactDOM from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { config } from 'dotenv'
 import * as firebaseService from './services/firebaseService'
 
 import App from './app'
 
-config() // setup dotenv
 firebaseService.init() // setup firebase
 const queryClient = new QueryClient() // setup react-query
 

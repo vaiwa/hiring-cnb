@@ -17,9 +17,9 @@ export function init(): void {
   rates()
 }
 
-export async function rates() {
+export async function rates(): Promise<RatesResult> {
   if (!ratesPromise) {
-    ratesPromise = (await firebaseService.fn('rates')()) as unknown as Promise<RatesResult> // TODO add tRPC to keep the types
+    ratesPromise = firebaseService.fn('rates')() as unknown as Promise<RatesResult> // TODO add tRPC to keep the types
   }
   return ratesPromise
 }

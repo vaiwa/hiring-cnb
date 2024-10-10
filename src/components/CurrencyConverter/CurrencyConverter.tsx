@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import styled from 'styled-components'
-import type { ExchangeRate } from '../app'
+import type { ExchangeRate } from '../../services/ratesService'
+import { ConvertedAmount } from './ConvertedAmount'
 
 const Container = styled.div`
   max-width: 400px;
@@ -11,7 +12,7 @@ const Container = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `
 
-const Title = styled.h1`
+const Title = styled.h2`
   text-align: center;
   color: #333;
 `
@@ -38,13 +39,6 @@ const Select = styled.select`
   border-radius: 4px;
   border: 1px solid #ccc;
   font-size: 16px;
-`
-
-const ConvertedAmount = styled.p`
-  font-size: 24px;
-  font-weight: bold;
-  color: #222;
-  text-align: center;
 `
 
 type CurrencyConverterProps = {
@@ -80,7 +74,7 @@ const CurrencyConverter = ({ data }: CurrencyConverterProps) => {
 
   return (
     <Container>
-      <Title>CZK to Currency Converter</Title>
+      <Title>Currency Converter</Title>
 
       <div>
         <Label>Amount in CZK:</Label>
@@ -102,9 +96,7 @@ const CurrencyConverter = ({ data }: CurrencyConverterProps) => {
 
       <div>
         <h3>Converted Amount:</h3>
-        <ConvertedAmount>
-          {convertedAmount.toFixed(2)} {selectedCurrency}
-        </ConvertedAmount>
+        <ConvertedAmount value={`${convertedAmount.toFixed(2)} ${selectedCurrency}`} />
       </div>
     </Container>
   )

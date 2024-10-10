@@ -36,6 +36,6 @@ describe('App', () => {
     })
 
     const { getByText } = render(<App />)
-    expect(getByText(/Task CNB/gi)).toBeTruthy()
+    expect(getByText(/Task ČNB/gi)).toBeTruthy()
   })
 })
