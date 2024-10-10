@@ -15,6 +15,17 @@ const StyledApp = styled.div`
   background: linear-gradient(150deg, #63bba4 0%, #fec957 140%);
 `
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`
+
 export function App() {
   const { isPending, error, data } = useRate()
 
@@ -23,10 +34,10 @@ export function App() {
   ) : error ? (
     <p>An error has occurred: {error.message}</p>
   ) : (
-    <>
+    <Container>
       <CurrencyConverter data={data} />
       <RatesTable data={data} />
-    </>
+    </Container>
   )
 
   return (

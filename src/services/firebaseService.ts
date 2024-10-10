@@ -11,6 +11,8 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 }
 
+console.info('Firebase Config - ProjectId:', firebaseConfig.projectId)
+
 let firebaseInstance: FirebaseApp | null = null
 let functionsInstance: Functions | null = null
 

@@ -6,6 +6,8 @@ const Container = styled.p`
   font-weight: bold;
   color: #222;
   text-align: center;
+  margin: 0px;
+  padding: 10px 0px;
   cursor: pointer;
 `
 
