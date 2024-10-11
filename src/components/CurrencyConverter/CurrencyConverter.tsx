@@ -25,7 +25,7 @@ const Label = styled.label`
 `
 
 const Input = styled.input`
-  width: 100%;
+  width: 282px;
   padding: 8px;
   margin-bottom: 16px;
   border-radius: 4px;
@@ -80,7 +80,6 @@ const CurrencyConverter = ({ data }: CurrencyConverterProps) => {
       <div>
         <Label>Amount in CZK:</Label>
         <Input
-          type="number"
           value={czkAmount}
           onChange={(e) => {
             setCzkAmount(parseFloat(e.target.value) || 0) // TODO use zod for validation and better ui
